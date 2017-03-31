@@ -23,11 +23,11 @@ public class StylistTest {
     assertEquals(true, testStylist instanceof Stylist);
   }
 
-  // @Test
-  // public void stylist_instantiatesWithName_String() {
-  //   Stylist testStylist = new Stylist("Cathy", "");
-  //   assertEquals("Cathy", testStylist.getStylistName());
-  // }
+  @Test
+  public void stylist_instantiatesWithName_String() {
+    Stylist testStylist = new Stylist("Cathy", "");
+    assertEquals("Cathy", testStylist.getStylistName());
+  }
 
   // @Test
   // public void stylist_instantiatesWithDetails_String() {
