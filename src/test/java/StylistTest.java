@@ -9,14 +9,15 @@ public class StylistTest {
   public void setUp() {
     DB.sql2o = new Sql2o("jdbc:postgresql://localhost:5432/hair_salon_test", null, null);
   }
-  //
+
   // @After
   // public void tearDown() {
   //   try (Connection con = DB.sql2o.open()) {
-  //     String sql = "DELETE FROM name_of_your_table *;";
+  //     String sql = "DELETE FROM hair_salon_test *;";
   //     con.createQuery(sql).executeUpdate();
   //   }
   // }
+
   @Test
   public void stylist_instantiatesCorrectly() {
     Stylist testStylist = new Stylist("", "");
@@ -34,5 +35,12 @@ public class StylistTest {
     Stylist testStylist = new Stylist("Cathy", "Womens Hair Stylist");
     assertEquals("Womens Hair Stylist", testStylist.getStylistDetails());
   }
+
+  @Test
+  public void stylist_instantiatesWithId_true() {
+    Stylist testStylist = new Stylist("Cathy", "Womens Hair Stylist");
+    testStylist.save();
+    assertEquals(1, testStylist.getStylistId());
+    }
 
 }

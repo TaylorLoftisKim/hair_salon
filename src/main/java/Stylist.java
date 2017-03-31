@@ -24,11 +24,22 @@ public class Stylist {
     return id;
   }
 
-  // public static List<Stylist> all() {
-  //   String sql = "SELECT id, description FROM stylists";
-  //   try(Connection con = DB.sql2o.open()) {
-  //     return con.createQuery(sql)
-  //     .executeAndFetch(Stylist.class);
-  //   }
-  // }
+  public static List<Stylist> all() {
+    String sql = "SELECT id, description FROM stylists";
+    try(Connection con = DB.sql2o.open()) {
+      return con.createQuery(sql)
+      .executeAndFetch(Stylist.class);
+    }
+  }
+
+  public void save() {
+    try(Connection con = DB.sql2o.open()) {
+      String sql = "INSERT INTO stylists (name, details) VALUES (:name, :details)";
+      this.id = (int) con.createQuery(sql, true)
+      .addParameter("name", this.name)
+      .addParameter("specialty", this.details)
+      .executeUpdate()
+      .getKey();
+    }
+  }
 }
