@@ -29,10 +29,10 @@ public class StylistTest {
     assertEquals("Cathy", testStylist.getStylistName());
   }
 
-  // @Test
-  // public void stylist_instantiatesWithDetails_String() {
-  //   Stylist testStylist = new Stylist("Cathy", "Womens Hair Stylist");
-  //   assertEquals("")
-  // }
+  @Test
+  public void stylist_instantiatesWithDetails_String() {
+    Stylist testStylist = new Stylist("Cathy", "Womens Hair Stylist");
+    assertEquals("Womens Hair Stylist", testStylist.getStylistDetails());
+  }
 
 }
