@@ -5,12 +5,30 @@ import org.sql2o.*;
 public class Stylist {
   private int id;
   private String name;
+  private String details;
 
-  public Stylist(String name) {
+  public Stylist(String name, String details) {
     this.name = name;
+    this.details = details;
   }
 
-  public String getName() {
+  public String getStylistName() {
     return name;
   }
+
+  public String getStylistDetails() {
+    return details;
+  }
+
+  public int getStylistId() {
+    return id;
+  }
+
+  // public static List<Stylist> all() {
+  //   String sql = "SELECT id, description FROM stylists";
+  //   try(Connection con = DB.sql2o.open()) {
+  //     return con.createQuery(sql)
+  //     .executeAndFetch(Stylist.class);
+  //   }
+  // }
 }
