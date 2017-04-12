@@ -43,26 +43,15 @@ public class Stylist {
     }
   }
 
-    // @Override
-    // public boolean equals(Object otherStylist) {
-    //   if (!(otherStylist instanceof Stylist)) {
-    //     return false;
-    //   } else {
-    //     Stylist newStylist = (Stylist) otherStylist;
-    //     return this.getName().equals(newStylist.getName()) &&
-    //            this.getDetail().equals(newStylist.getDetail()) &&
-    //            this.getId() == newStylist.getId();
-    //   }
-    // }
-
-  // public void clear() {
-  //   try(Connection con = DB.sql2o.open()) {
-  //     String sql = "DELETE * stylists (name, detail) VALUES (:name, :detail)";
-  //     this.id = (int) con.createQuery(sql, true)
-  //     .addParameter("name", this.name)
-  //     .addParameter("detail", this.detail)
-  //     .executeUpdate()
-  //     .getKey();
+  // @Override
+  // public boolean equals(Object otherStylist) {
+  //   if (!(otherStylist instanceof Stylist)) {
+  //     return false;
+  //   } else {
+  //     Stylist newStylist = (Stylist) otherStylist;
+  //     return this.getName().equals(newStylist.getName()) &&
+  //            this.getDetail().equals(newStylist.getDetail()) &&
+  //            this.getId() == newStylist.getId();
   //   }
-  }
+  // }
 }

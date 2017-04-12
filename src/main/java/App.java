@@ -22,16 +22,23 @@ public class App {
     }, new VelocityTemplateEngine());
 
     post("/stylist", (request, response) -> {
-     Map<String, Object> model = new HashMap<String, Object>();
-     String name = request.queryParams("name");
-     String detail = request.queryParams("detail");
-     Stylist newStylist = new Stylist(name, detail);
-     newStylist.save();
-     model.put("template", "templates/success.vtl");
-     return new ModelAndView(model, layout);
-   }, new VelocityTemplateEngine());
+      Map<String, Object> model = new HashMap<String, Object>();
+      String name = request.queryParams("name");
+      String detail = request.queryParams("detail");
+      Stylist newStylist = new Stylist(name, detail);
+      newStylist.save();
+      model.put("template", "templates/success.vtl");
+      return new ModelAndView(model, layout);
+    }, new VelocityTemplateEngine());
 
-   
+    get("/stylists", (request, response) -> {
+      Map<String, Object> model = new HashMap<String, Object>();
+      model.put("stylists", Stylist.all());
+      model.put("template", "templates/index.vtl");
+      return new ModelAndView(model, layout);
+    }, new VelocityTemplateEngine());
+
+
 
   }
 }
