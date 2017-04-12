@@ -70,15 +70,14 @@ public class Stylist {
     }
   }
 
-  // @Override
-  // public boolean equals(Object otherStylist) {
-  //   if (!(otherStylist instanceof Stylist)) {
-  //     return false;
-  //   } else {
-  //     Stylist newStylist = (Stylist) otherStylist;
-  //     return this.getName().equals(newStylist.getName()) &&
-  //            this.getDetail().equals(newStylist.getDetail()) &&
-  //            this.getId() == newStylist.getId();
-  //   }
-  // }
+  @Override
+   public boolean equals(Object otherStylist) {
+     if (!(otherStylist instanceof Stylist)) {
+       return false;
+     } else {
+       Stylist newStylist = (Stylist) otherStylist;
+       return this.getStylistId() == newStylist.getStylistId() &&
+              this.getStylistName().equals(newStylist.getStylistName());
+     }
+ }
 }

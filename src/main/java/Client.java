@@ -66,4 +66,17 @@ public class Client {
       .executeUpdate();
     }
   }
+
+  @Override
+  public boolean equals(Object otherClient) {
+    if (!(otherClient instanceof Client)) {
+      return false;
+    } else {
+      Client newClient = (Client) otherClient;
+      return this.getClientId() == newClient.getClientId() &&
+             this.getClientName().equals(newClient.getClientName()) &&
+             this.getStylistId() == newClient.getStylistId();
+
+    }
+  }
 }
