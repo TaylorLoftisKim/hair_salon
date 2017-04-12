@@ -27,12 +27,26 @@ public class StylistTest {
   }
 
   @Test
-  public void save_savesToDatabase_true() {
+  public void stylist_savesToDatabase_true() {
     Stylist testStylist = new Stylist("Cathy", "Womens Hair Stylist");
     testStylist.save();
     assertTrue(Stylist.all() instanceof List<?>);
   }
 
+  @Test
+  public void stylist_findsStylistById() {
+    Stylist testStylist = new Stylist("Cathy", "Womens Hair Stylist");
+    testStylist.save();
+    assertEquals(true, testStylist.find(testStylist.getStylistId()) instanceof Stylist);
+  }
 
+  @Test
+  public void stylist_DeleteAllStylists() {
+    Stylist testStylist = new Stylist("Cathy", "Womens Hair Stylist");
+    testStylist.save();
+    int stylistId = testStylist.getStylistId();
+    testStylist.delete();
+    assertEquals(null, Stylist.find(stylistId));
+  }
 
 }

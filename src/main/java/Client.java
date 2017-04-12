@@ -11,7 +11,7 @@ public class Client {
   public Client(String name, String detail) {
     this.name = name;
     this.detail = detail;
-    this.stylistId = 0;
+    this.stylistId = stylistId;
   }
 
   public int getStylistId() {
@@ -55,6 +55,15 @@ public class Client {
       .addParameter("detail", this.detail)
       .executeUpdate()
       .getKey();
+    }
+  }
+
+  public void delete() {
+    try(Connection con = DB.sql2o.open()) {
+    String sql = "DELETE FROM clients WHERE id = :id;";
+    con.createQuery(sql)
+      .addParameter("id", id)
+      .executeUpdate();
     }
   }
 }
