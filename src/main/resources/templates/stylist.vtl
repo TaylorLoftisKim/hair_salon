@@ -1,0 +1,16 @@
+<div class="contianer">
+  <div class="jumbotron">
+    <h1>Here are all Clients for $stylist.getStylistName()</h1>
+  </div>
+  <div class="jumbotron">
+    <h2>Clients:</h2>
+    #foreach($client in $stylist.getClients())
+   <!--<li>$client.getName()</li>-->
+   <li>$client.getClientName()</li>
+   <link rel='stylesheet' href='/app.css'>
+  #end
+  </div>
+  <div class="jumbotron">
+    <a href="/client/new"><h3>Add a Client</h3></a>
+  </div>
+</div>

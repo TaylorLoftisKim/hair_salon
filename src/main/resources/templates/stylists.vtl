@@ -1,13 +1,17 @@
-<h1>Here are all of your Stylists</h1>
-
-#if($stylists)
-    #foreach($stylist in $stylists)
-      Name: $stylists.getStylistName()
-      <br>
-      Details: $stylists.getStylistDetail()
-      <br>
-      <hr>
+<div class="contianer">
+  <div class="jumbotron">
+    <h1>Here are all of your Stylists</h1>
+    <hr>
+    <h4>Click a Stylist Name to add a Client</h4>
+  </div>
+  <div class="jumbotron">
+    #foreach ($stylist in $stylists)
+    Name: <a href="/stylists/$stylist.getStylistId()">$stylist.getStylistName()</a>
+    <br>
+    Details: $stylist.getStylistDetail()
+    <br>
+    <hr>
     #end
-  #end
-
+  </div>
+</div>
   <a href="/"><h3>Go Home</h3></a>
