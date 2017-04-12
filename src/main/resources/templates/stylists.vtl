@@ -1,0 +1,11 @@
+<h1>Here are all of your Stylists</h1>
+
+#if($stylists)
+    #foreach($stylists in $stylists.getStylistName())
+      Name: $stylists.getLocation()
+      <br>
+      Details: $stylists.getStylistDetail()
+      <br>
+      <hr>
+    #end
+  #end

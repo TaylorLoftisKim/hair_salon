@@ -33,14 +33,21 @@ public class StylistTest {
   @Test
   public void stylist_instantiatesWithDetails_String() {
     Stylist testStylist = new Stylist("Cathy", "Womens Hair Stylist");
-    assertEquals("Womens Hair Stylist", testStylist.getStylistDetails());
+    assertEquals("Womens Hair Stylist", testStylist.getStylistDetail());
   }
 
   @Test
-  public void stylist_instantiatesWithId_true() {
+  public void save_savesToDatabase_true() {
     Stylist testStylist = new Stylist("Cathy", "Womens Hair Stylist");
     testStylist.save();
-    assertEquals(1, testStylist.getStylistId());
-    }
+    assertTrue(Stylist.all().get(0).equals(testStylist));
+  }
+
+  // @Test
+  // public void clear_emptiesAllInstances_true() {
+  //   Stylist testStylist = new Stylist("Cathy", "Womens Hair Stylist");
+  //   testStylist.clear();
+  //   assertEquals(1, testStylist.clear());
+  // }
 
 }

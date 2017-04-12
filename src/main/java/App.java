@@ -15,5 +15,23 @@ public class App {
       return new ModelAndView(model, layout);
     }, new VelocityTemplateEngine());
 
+    get("/stylist/new", (request, response) -> {
+      Map<String, Object> model = new HashMap<String, Object>();
+      model.put("template", "templates/stylist-form.vtl");
+      return new ModelAndView(model, layout);
+    }, new VelocityTemplateEngine());
+
+    post("/stylist", (request, response) -> {
+     Map<String, Object> model = new HashMap<String, Object>();
+     String name = request.queryParams("name");
+     String detail = request.queryParams("detail");
+     Stylist newStylist = new Stylist(name, detail);
+     newStylist.save();
+     model.put("template", "templates/success.vtl");
+     return new ModelAndView(model, layout);
+   }, new VelocityTemplateEngine());
+
+   
+
   }
 }

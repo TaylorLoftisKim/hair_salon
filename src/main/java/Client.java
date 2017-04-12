@@ -4,23 +4,57 @@ import org.sql2o.*;
 
 public class Client {
   private int id;
+  private int stylistId;
   private String name;
-  private String details;
+  private String detail;
 
-  public Client(String name, String details) {
+  public Client(String name, String detail) {
     this.name = name;
-    this.details = details;
+    this.detail = detail;
+    this.stylistId = 0;
   }
 
-  public String getName() {
+  public int getStylistId() {
+    return stylistId;
+  }
+
+  public String getClientName() {
     return name;
   }
 
-  public String getDetails() {
-    return details;
+  public String getClientDetail() {
+    return detail;
   }
 
   public int getClientId() {
     return id;
+  }
+
+  public static List<Client> all() {
+    String sql = "SELECT id, detail FROM clients";
+    try(Connection con = DB.sql2o.open()) {
+      return con.createQuery(sql)
+      .executeAndFetch(Client.class);
+    }
+  }
+
+  public static Client find(int id) {
+    try(Connection con = DB.sql2o.open()) {
+    String sql = "SELECT * FROM clients where id=:id";
+    return con.createQuery(sql)
+      .addParameter("id", id)
+      .executeAndFetchFirst(Client.class);
+    }
+  }
+
+  public void save() {
+    try(Connection con = DB.sql2o.open()) {
+      String sql = "INSERT INTO clients (name, detail) VALUES (:name, :detail)";
+      this.id = (int) con.createQuery(sql, true)
+      .addParameter("name", this.name)
+      .addParameter("detail", this.detail)
+      .executeUpdate()
+      .getKey();
+    }
   }
 }
