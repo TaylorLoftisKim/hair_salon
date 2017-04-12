@@ -15,6 +15,9 @@ _{This application allows employees to add multiple Hair Stylists and Clients to
 * _in a simple_
 * _easy-to-understand_
 * _format_
+* `CREATE DATABASE hair_salon;`
+* `In terminal, "not in psql", type psql hair_salon < hair_salon.sql`
+* `Perform "gradle run" in terminal.`
 
 _{Leave nothing to chance! You want it to be easy for potential users, employers and collaborators to run your app. Do I need to run a server? How should I set up my databases? Is there other code this app depends on?}_
 

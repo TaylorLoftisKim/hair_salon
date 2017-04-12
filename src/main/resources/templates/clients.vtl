@@ -1,0 +1,15 @@
+<h1>Here are all Clients for $stylist.getStylistName()</h1>
+<div class="jumbotron">
+#if ($clients)
+  <ul>
+    #foreach ($client in $clients)
+      <!-- <li><a class="headerLink" href="/clients/$client.getId()">$client.getName()</a></li> -->
+      <li>$client.getClientName()</li>
+    #end
+  </ul>
+#else
+  <p>No Clients!</p>
+#end
+<br>
+</div>
+<p><a class="headerLink" href="/">Back To Welcome Page</a></p>
