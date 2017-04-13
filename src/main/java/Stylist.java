@@ -79,5 +79,5 @@ public class Stylist {
        return this.getStylistId() == newStylist.getStylistId() &&
               this.getStylistName().equals(newStylist.getStylistName());
      }
- }
+  }
 }

@@ -3,7 +3,6 @@
 #if ($clients)
   <ul>
     #foreach ($client in $clients)
-      <!-- <li><a class="headerLink" href="/clients/$client.getId()">$client.getName()</a></li> -->
       <li>$client.getClientName()</li>
     #end
   </ul>

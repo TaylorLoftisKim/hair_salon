@@ -38,15 +38,6 @@ public class Client {
     }
   }
 
-  public static Client find(int id) {
-    try(Connection con = DB.sql2o.open()) {
-    String sql = "SELECT * FROM clients where id=:id";
-    return con.createQuery(sql)
-      .addParameter("id", id)
-      .executeAndFetchFirst(Client.class);
-    }
-  }
-
   public void save() {
     try(Connection con = DB.sql2o.open()) {
       String sql = "INSERT INTO clients (name, detail) VALUES (:name, :detail)";
@@ -55,6 +46,15 @@ public class Client {
       .addParameter("detail", this.detail)
       .executeUpdate()
       .getKey();
+    }
+  }
+
+  public static Client find(int id) {
+    try(Connection con = DB.sql2o.open()) {
+    String sql = "SELECT * FROM clients where id=:id";
+    return con.createQuery(sql)
+      .addParameter("id", id)
+      .executeAndFetchFirst(Client.class);
     }
   }
 
@@ -76,7 +76,6 @@ public class Client {
       return this.getClientId() == newClient.getClientId() &&
              this.getClientName().equals(newClient.getClientName()) &&
              this.getStylistId() == newClient.getStylistId();
-
     }
   }
 }
